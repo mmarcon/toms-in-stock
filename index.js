@@ -5,12 +5,29 @@ const cheerio = require('cheerio');
 const url = require('url');
 const chalk = require('chalk');
 const debug = require('debug')('toms');
+const yargs = require('yargs');
 
 const config = require('./config.json');
 
-const country = process.argv[2];
-const slug = process.argv[3];
-const size = process.argv[4];
+const argv = yargs
+    .wrap(null)
+    .usage('Usage: $0 <slug> [-c "country"] [-s "size"]')
+    .command('slug', 'Slug of the weboage for the shoe model to check', { alias: 'slug' })
+    .demand(1, 'slug is required')
+    .option('c', {
+        alias: 'country',
+        demand: false,
+        default: 'germany',
+        describe: 'Set the country where you want to buy the shoes',
+        choices: Object.keys(config)
+    })
+    .option('s', { alias: 'size', demand: false, default: '44', describe: 'Set the size you need' })
+    .help()
+    .argv;
+
+const slug = argv._[0];
+const country = argv.country;
+const size = argv.size;
 
 const tomsUrl = url.resolve(config[country].baseUrl, slug);
 
@@ -28,7 +45,7 @@ request(tomsUrl, function(error, response, body) {
             return $(this).text().trim();
         })
         .get()
-        .filter((s) => s.split(' ')[0] === size)
+        .filter((s) => Number(s.split(' ')[0]) === size)
         .shift();
 
     if (!sizeEntry) {
