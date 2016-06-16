@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const request = require('request');
 const cheerio = require('cheerio');
 const url = require('url');
