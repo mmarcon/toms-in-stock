@@ -1,0 +1,20 @@
+{
+	"germany": {
+		"baseUrl": "http://shoptoms.de"
+	},
+	"us": {
+		"baseUrl": "http://www.toms.com"
+	},
+	"canada": {
+		"baseUrl": "http://www.toms.ca"
+	},
+	"uk": {
+		"baseUrl": "http://www.toms.co.uk"
+	},
+	"netherlands": {
+		"baseUrl": "http://www.shoptoms.nl"
+	},
+	"france": {
+		"baseUrl": "http://toms.fr"
+	}
+}
