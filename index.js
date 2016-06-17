@@ -47,7 +47,8 @@ request(tomsUrl, function(error, response, body) {
             return $(this).text().trim();
         })
         .get()
-        .filter((s) => Number(s.split(' ')[0]) === size)
+        .map(s => debug(s) || s)
+        .filter(s => Number(s.split(' ')[0]) === size)
         .shift();
 
     if (!sizeEntry) {
