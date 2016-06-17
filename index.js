@@ -12,7 +12,7 @@ const config = require('./config.json');
 const argv = yargs
     .wrap(null)
     .usage('Usage: $0 <slug> [-c "country"] [-s "size"]')
-    .command('slug', 'Slug of the weboage for the shoe model to check', { alias: 'slug' })
+    .command('slug', 'Slug of the webpage for the shoe model to check', { alias: 'slug' })
     .demand(1, 'slug is required')
     .option('c', {
         alias: 'country',
@@ -22,6 +22,8 @@ const argv = yargs
         choices: Object.keys(config)
     })
     .option('s', { alias: 'size', demand: false, default: '44', describe: 'Set the size you need' })
+    .example('$0 navy-linen-rope-sole-mens-classics -c germany -s 44',
+        'Checks if Navy Linen Rope Men\'s Classics are available in Germany in size 44')
     .help()
     .argv;
 
