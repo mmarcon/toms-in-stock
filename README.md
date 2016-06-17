@@ -25,3 +25,7 @@ I thought I'd automate the process of checking when they become available again,
 	Examples:
   	  toms-in-stock navy-linen-rope-sole-mens-classics -c germany -s 44
   	  Checks if Navy Linen Rope Men's Classics are available in Germany in size 44
+
+## Demo
+
+![Demo](https://raw.githubusercontent.com/mmarcon/toms-in-stock/master/demo/demo.gif)
