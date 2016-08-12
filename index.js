@@ -49,7 +49,7 @@ if (process.stdout.isTTY) {
 
 function exit(text, color) {
     if(process.stdout.isTTY) {
-        logUpdate(`\n\n    ${chalk[color](text)}\n\n`);    
+        logUpdate(`\n\n     ${chalk[color](text)}\n\n`);    
     } else {
         console.log(text);
     }
